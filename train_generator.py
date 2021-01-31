@@ -65,15 +65,15 @@ def define_generator(latent_dim):
     model.add(BatchNormalization(momentum=0.85))
     model.add(LeakyReLU(alpha=0.1))
     model.add(Reshape((4, 4, 512)))
-    #Resolution: 4x4x256
+    #Resolution: 4x4x512
     model.add(Conv2DTranspose(512, (4,4), strides=(2, 2), padding='same'))
     model.add(BatchNormalization(momentum=0.85))
     model.add(LeakyReLU(alpha=0.1))
-    #Resolution: 8x8x128
+    #Resolution: 8x8x512
     model.add(Conv2DTranspose(256, (4,4), strides=(2, 2), padding='same'))
     model.add(BatchNormalization(momentum=0.85))
     model.add(LeakyReLU(alpha=0.1))
-    #Resolution: 16x16x128
+    #Resolution: 16x16x256
     model.add(Conv2DTranspose(128, (4,4), strides=(2, 2), padding='same'))
     model.add(BatchNormalization(momentum=0.85))
     model.add(LeakyReLU(alpha=0.1))
@@ -81,7 +81,7 @@ def define_generator(latent_dim):
     model.add(Conv2DTranspose(64, (4,4), strides=(2, 2), padding='same'))
     model.add(BatchNormalization(momentum=0.85))
     model.add(LeakyReLU(alpha=0.1))
-    #Resolution: 64x64x128
+    #Resolution: 64x64x64
     model.add(Conv2D(64, (3,3), padding='same'))
     model.add(LeakyReLU(alpha=0.1))
 
@@ -212,3 +212,6 @@ for i in range(300):
     gan_model.set_weights(gan_weights)
    
     train_epoch(generator, discriminator, gan_model, dataset, latent_dim, batch_size=128)
+    if i%10 == 9:
+        generator.save('checkpoint models/anime_generator_epoch',i+1,'.h5')
+generator.save('trained_generator.h5')
