@@ -21,3 +21,5 @@ These are the arcitectures choosen for the generator and the discriminator:
 # How to Test the generator
 
 # Strategies for a stable training
+
+# Possible improvements
