@@ -25,13 +25,18 @@ def show_plot(examples, m, n):
         # plot raw pixel data
         img = cv2.cvtColor((np.clip((examples[i,:,:,:]+1)*127.5,0,255)).astype('uint8'), cv2.COLOR_BGR2RGB)
         plt.imshow(img)
-    plt.pause(0.01)
+    plt.pause(10)
 
-m=5
-n=5
+m=6
+n=4
 latent_dim = 100
 
 model = load_model('trained_generator.h5')
+latent_points = generate_latent_points(latent_dim, m*n)
+X = model.predict(latent_points)
+show_plot(X, m, n)
+plt.show()
+
 latent_points = generate_latent_points(latent_dim, m*n)
 X = model.predict(latent_points)
 show_plot(X, m, n)

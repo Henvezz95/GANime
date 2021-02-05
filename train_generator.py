@@ -45,7 +45,7 @@ def define_discriminator(in_shape=(64,64,3), std=0.6, opt=None):
     # Resolution 4x4
     # classifier
     model.add(Flatten())
-    model.add(Dropout(0.4))
+    model.add(Dropout(0.5))
     model.add(Dense(192))
     model.add(LeakyReLU(alpha=0.1))
     model.add(Dropout(0.2))
@@ -156,9 +156,9 @@ def train_epoch(g_model, d_model, gan_model, dataset, latent_dim, batch_size=128
         print('%d/%d, d1=%.3f, d2=%.3f, g=%.3f' %
                 (j+1, bat_per_epo, d_loss1, d_loss2, g_loss))
 
-    latent_points = generate_latent_points(100, 24)
+    latent_points = generate_latent_points(100, 25)
     X = generator.predict(latent_points)
-    show_plot(X, 6, 4)
+    show_plot(X, 5, 5)
 
 
 #The main starts here
@@ -211,7 +211,7 @@ for i in range(300):
     gan_model = define_gan(generator, discriminator, opt=ganopt)
     gan_model.set_weights(gan_weights)
    
-    train_epoch(generator, discriminator, gan_model, dataset, latent_dim, batch_size=128)
+    train_epoch(generator, discriminator, gan_model, dataset, latent_dim, batch_size=64)
     if i%10 == 9:
         generator.save('checkpoint models/anime_generator_epoch',i+1,'.h5')
 generator.save('trained_generator.h5')
