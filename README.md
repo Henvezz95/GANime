@@ -16,4 +16,8 @@ These are the arcitectures choosen for the generator and the discriminator:
      alt="Layer diagram"
      style="float: left; margin-top: 50px; margin-bottom: 50px;" />
 
+# How to train the generator
 
+# How to Test the generator
+
+# Strategies for a stable training
