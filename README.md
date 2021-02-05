@@ -37,7 +37,12 @@ These are the implemented startegies:
 
 
 # How to train the generator
+First download the dataset and put all the images in the folder `images`. It can be done by running the script `download_dataset.py` or downloading it manually from [https://www.kaggle.com/splcher/animefacedataset](https://www.kaggle.com/splcher/animefacedataset).
+Then run the script `train_generator.py`. All the hyperparameters have already been tested and tuned.
+Every 10 epochs a generator model is saved inside the folder `checkpoint models`. At the end of the training the generator will be saved to the indicated location (by default `./trained_geenrator.h5`).
 
 # How to Test the generator
+Run `test_generator.py`. It will display a matrix of examples with m rows and n columns.
+
 
 # Possible improvements
