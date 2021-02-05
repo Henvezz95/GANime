@@ -21,7 +21,7 @@ For a stable GAN training I followed some of the tips that can be foudn [here](h
 These are the implemeented startegies:
 * Input images are normalized between -1 and 1
 * The last layer of the generator uses Tanh as activation function
-* The loss function for the generator is 'max \log D'
+* The loss function for the generator is ![max](http://www.sciweavers.org/upload/Tex2Img_1612523259/render.png)
 
 
 # How to train the generator
