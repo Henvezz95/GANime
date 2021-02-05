@@ -18,7 +18,7 @@ These are the arcitectures choosen for the generator and the discriminator:
 
 # Strategies for a stable training
 For a stable GAN training, I combined different strategies that are known to improve GAN training. I took inspiration from this extremely useful guide [https://github.com/soumith/ganhacks](https://github.com/soumith/ganhacks).
-These are the implemeented startegies:
+These are the implemented startegies:
 * Input images are normalized between -1 and 1
 * The last layer of the generator uses Tanh as the activation function
 * The loss function for the generator is `-log(D)` instead of `log(1-D)` (This is achieved by flipping labels when training generator: real = fake, fake = real)
