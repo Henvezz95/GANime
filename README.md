@@ -41,8 +41,13 @@ First download the dataset and put all the images in the folder `images`. It can
 Then run the script `train_generator.py`. All the hyperparameters have already been tested and tuned.
 Every 10 epochs a generator model is saved inside the folder `checkpoint models`. At the end of the training the generator will be saved to the indicated location (by default `./trained_geenrator.h5`).
 
+Training is slow and it usually takes half a day. The default number of epochs is 300.
+
 # How to Test the generator
 Run `test_generator.py`. It will display a matrix of examples with m rows and n columns.
 
 
 # Possible improvements
+* In the actual implementation the architectures for generator and discriminator are rebuilt every time the noise standard deviation changes. This slows down the training. A different implementation could be to override the Gaussian Noise Layer from keras and make stddev a tensorflow variable instead of a float value.
+* Use a more complex architecture for the generator and discriminator. Deeper networks can produce more complex details. Adding skip connections can help coherency at different scales.
+* Find a different trade off between the discriminator's input noise and label noise
