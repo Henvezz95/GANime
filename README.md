@@ -17,7 +17,7 @@ These are the arcitectures choosen for the generator and the discriminator:
      style="float: left; margin-top: 50px; margin-bottom: 50px;" />
 
 # Strategies for a stable training
-For a stable GAN training, I combined different strategies that are known to improve GAN training. I took inspiration from this guide [here](https://github.com/soumith/ganhacks).
+For a stable GAN training, I combined different strategies that are known to improve GAN training. I took inspiration from this extremely useful guide [https://github.com/soumith/ganhacks](https://github.com/soumith/ganhacks).
 These are the implemeented startegies:
 * Input images are normalized between -1 and 1
 * The last layer of the generator uses Tanh as the activation function
