@@ -48,6 +48,7 @@ Run `test_generator.py`. It will display a matrix of examples with m rows and n 
 
 
 # Possible improvements
-* In the actual implementation the architectures for generator and discriminator are rebuilt every time the noise standard deviation changes. This slows down the training. A different implementation could be to override the Gaussian Noise Layer from keras and make stddev a tensorflow variable instead of a float value.
+* In the actual implementation the architectures for generator and discriminator are rebuilt every time the noise standard deviation changes. This slows down the training. A different implementation could be used to override the Gaussian Noise Layer from keras and make stddev a tensorflow variable instead of a float value.
+* Use progressive growing
 * Use a more complex architecture for the generator and discriminator. Deeper networks can produce more complex details. Adding skip connections can help coherency at different scales.
 * Find a different trade off between the discriminator's input noise and label noise
